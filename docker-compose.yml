@@ -1,0 +1,31 @@
+version: '2.4'
+
+services:
+  course_work:
+    image: tomsik68/xampp
+    restart: on-failure
+    cpus: "0.5"
+    mem_limit: 200m
+    environment:
+      - MYSQL_ROOT_PASSWORD=db_secret_password_312
+      - MYSQL_PWD=db_secret_password_312
+      - LETSENCRYPT_HOST=course_work.ky3he4ik.dev
+      - VIRTUAL_HOST=course_work.ky3he4ik.dev
+      - VIRTUAL_PORT=8083
+      - db_hostname=localhost
+      - db_username=root
+      - db_password=db_secret_password_312
+      - PMA_PASSWORD=db_secret_password_312
+
+    volumes:
+      - .:/www
+      - .:/opt/lampp/htdocs
+      - ./mysql:/mysql
+    expose:
+      - "80"
+    container_name: course_work
+
+
+volumes:
+  mysql:
+  course_work:
