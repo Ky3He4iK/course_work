@@ -42,7 +42,6 @@ if (!isset($LOGIN)) {
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <!-- todo: pages, links -->
                     <div class="sb-sidenav-menu-heading">Каталог товаров</div>
                     <a class="nav-link" href="disks.php">
                         <div class="sb-nav-link-icon"><i class="fas fa- fa-dot-circle"></i></div>

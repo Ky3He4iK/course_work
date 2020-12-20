@@ -2,7 +2,7 @@ version: '2.4'
 
 services:
   course_work:
-    image: tomsik68/xampp
+    image: my_xampp
     restart: on-failure
     cpus: "0.5"
     mem_limit: 200m
