@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS disks_db_736;
 USE disks_db_736;
 
 CREATE TABLE IF NOT EXISTS USERS
@@ -10,7 +11,7 @@ CREATE TABLE IF NOT EXISTS USERS
     is_admin  bool        NOT NULL DEFAULT FALSE
 ) DEFAULT CHARSET = utf8;
 
--- INSERT INTO USERS (login, user_name, salt, password, is_admib) VALUES ()
+-- INSERT INTO USERS (login, user_name, salt, password, is_admin) VALUES ()
 
 
 CREATE TABLE IF NOT EXISTS DISKS
