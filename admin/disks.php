@@ -4,14 +4,10 @@ include("../php/head_admin.php");
 include("../php/body_admin.php");
 
 $disk_id = 'disk_id';
+include("../php/disks_filter.php");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $manufacturer = 'manufacturer';
-    $model = 'model';
     $description = 'description';
-    $capacity = 'capacity';
-    $price = 'price';
-    $transfer_rate = 'transfer_rate';
-    $interface = 'interface';
     if (!isset($_POST[$manufacturer]) || !isset($_POST[$model]) || !isset($_POST[$capacity])
         || !isset($_POST[$price]) || !isset($_POST[$transfer_rate]) || !isset($_POST[$interface])) {
         if (isset($_POST[$disk_id]) && strlen($_POST[$disk_id]) > 0) {
@@ -20,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $result = mysqli_query($base, $query);
             if (!$result)
                 $ERROR = mysqli_error($base);
-
             else
                 $INFO = 'Диск удален успешно';
         } else
@@ -87,52 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         ?>
         <div class="card mb-4">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Модель</th>
-                            <th>Производитель</th>
-                            <th>Ёмкость (Гб)</th>
-                            <th>Скорость передачи данных (Мб/с)</th>
-                            <th>Интерфейс</th>
-                            <th>Цена</th>
-                            <th>Описание</th>
-                        </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th>Модель</th>
-                            <th>Производитель</th>
-                            <th>Ёмкость (Гб)</th>
-                            <th>Скорость передачи данных (Мб/с)</th>
-                            <th>Интерфейс</th>
-                            <th>Цена</th>
-                            <th>Описание</th>
-                        </tr>
-                        </tfoot>
-                        <tbody>
-                        <?php
-                        $result = mysqli_query($base, "SELECT * FROM $table_disks_table");
-                        while ($row = mysqli_fetch_array($result)) {
-                            echo '<tr class="center">' .
-                                "<td><b>$row[$table_disks_id]</b></td>
-                                <td>$row[$table_disks_model]</td>
-                                <td>$row[$table_disks_manufacturer]</td>
-                                <td>$row[$table_disks_capacity]</td>
-                                <td>$row[$table_disks_transfer_rate]</td>
-                                <td>$row[$table_disks_interface]</td>
-                                <td>$row[$table_disks_price]</td>
-                                <td>$row[$table_disks_description]</td></tr>";
-                        }
-                        ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <?php
+            include("php/disks_table.php")
+            ?>
         </div>
         <div class="card-body">
             <h1 class="mt-4">Удалить диск</h1>

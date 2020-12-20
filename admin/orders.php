@@ -135,19 +135,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <th>Описание</th>
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th>Количество</th>
-                                <th>№</th>
-                                <th>Модель</th>
-                                <th>Производитель</th>
-                                <th>Ёмкость (Гб)</th>
-                                <th>Скорость передачи данных (Мб/с)</th>
-                                <th>Интерфейс</th>
-                                <th>Цена</th>
-                                <th>Описание</th>
-                            </tr>
-                            </tfoot>
                             <tbody>
                             <?php
                             $query = "SELECT $table_orders_details_disk_id, $table_orders_details_disk_count FROM $table_orders_details_table WHERE $table_orders_details_order_id=$row[$table_orders_order_id]";

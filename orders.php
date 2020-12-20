@@ -34,16 +34,6 @@ include("php/body.php");
                                 <th>Описание</th>
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th>Количество</th>
-                                <th>Модель</th>
-                                <th>Производитель</th>
-                                <th>Ёмкость (Гб)</th>
-                                <th>Цена</th>
-                                <th>Описание</th>
-                            </tr>
-                            </tfoot>
                             <tbody>
                             <?php
                             $result_d = mysqli_query($base, "SELECT $table_orders_details_disk_id, $table_orders_details_disk_count FROM $table_orders_details_table WHERE $table_orders_details_order_id='$row[$table_orders_order_id]'") or die(mysqli_error($base));

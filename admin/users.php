@@ -99,14 +99,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <th>Администратор?</th>
                         </tr>
                         </thead>
-                        <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th>Почта</th>
-                            <th>Имя</th>
-                            <th>Администратор?</th>
-                        </tr>
-                        </tfoot>
                         <tbody>
                         <?php
                         $result = mysqli_query($base, "SELECT * FROM $table_users_table");
