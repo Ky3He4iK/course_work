@@ -16,20 +16,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $NAME_ERR = "Введите имя";
         $IS_OK = false;
     } else {
-        $r = preg_match("/^[\\d\\wа-яА-ЯёЁ ]{2,39}$/", $_POST[$NAME]);
-        if ($r == 0) {
+        $name = mysqli_real_escape_string($base, $_POST[$NAME]);
+        if (strlen($name) < 2 || strlen($name) > 39) {
             $NAME_ERR = "Неправильное имя";
             $IS_OK = false;
-        } else
-            $name = $_POST[$NAME];
+        }
     }
     $SURNAME = "second_name";
     if (!isset($_POST[$SURNAME])) {
         $SURNAME_ERR = "Введите фамилию";
         $IS_OK = false;
     } else {
-        $r = preg_match("/^[\\d\\wа-яА-ЯёЁ ]{2,39}$/", $_POST[$SURNAME]);
-        if ($r == 0) {
+        $surname = mysqli_real_escape_string($base, $_POST[$SURNAME]);
+        if (strlen($surname) < 2 || strlen($surname) > 39) {
             $SURNAME_ERR = "Неправильная фамилия";
             $IS_OK = false;
         } else
@@ -43,12 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $MAIL_ERR = "Почта слишком длинная";
         $IS_OK = false;
     } else {
-        $r = preg_match("/^[\\w\\d]+@[\\w\\d]+\\.[\\w\\d]+$/", $_POST[$MAIL]);
+        $r = preg_match("/^*+@*+$/", $_POST[$MAIL]);
         if ($r == 0) {
             $MAIL_ERR = "Неправильный формат почты";
             $IS_OK = false;
         } else {
-            $mail = $_POST[$MAIL];
+            $mail = mysqli_real_escape_string($base, $_POST[$MAIL]);
             if (strlen($mail) > 39) {
                 $MAIL_ERR = 'слишком длинная почта';
                 $IS_OK = false;
@@ -60,12 +59,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $PASS_ERR = "Введите пароль";
         $IS_OK = false;
     } else {
-        $r = preg_match("/^[\\w\\d]{8,65}$/", $_POST[$PASS]);
+        $r = preg_match("/^[\\w\\d_]{8,65}$/", $_POST[$PASS]);
         if ($r == 0) {
             $PASS_ERR = "Пароль должен содержать от 8 до 65 символов и должен состоять из английских букв, цифр и знака `_`";
             $IS_OK = false;
         } else
-            $pass = $_POST[$PASS];
+            $pass = mysqli_real_escape_string($base, $_POST[$PASS]);
     }
     $PASS_CONF = "confirm_password";
     if (!isset($_POST[$PASS_CONF])) {

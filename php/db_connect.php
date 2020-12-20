@@ -4,15 +4,15 @@ if (isset($_ENV["db_hostname"]))
 else
     $hostname = "localhost";
 if (isset($_ENV["db_username"]))
-    $hostname = $_ENV["db_username"];
+    $username = $_ENV["db_username"];
 else
     $username = "disks_user_142";
 if (isset($_ENV["db_password"]))
-    $hostname = $_ENV["db_password"];
+    $password = $_ENV["db_password"];
 else
     $password = "mysecret_password_956";
 if (isset($_ENV["db_dbname"]))
-    $hostname = $_ENV["db_dbname"];
+    $dbName = $_ENV["db_dbname"];
 else
     $dbName = "disks_db_736";
 

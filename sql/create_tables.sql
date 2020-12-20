@@ -8,10 +8,10 @@ CREATE TABLE IF NOT EXISTS USERS
     user_name varchar(80) NOT NULL,
     salt      varchar(41) NOT NULL,
     password  varchar(41) NOT NULL,
-    is_admin  bool        NOT NULL DEFAULT FALSE
+    is_admin  boolean     NOT NULL DEFAULT FALSE
 ) DEFAULT CHARSET = utf8;
 
--- INSERT INTO USERS (login, user_name, salt, password, is_admin) VALUES ()
+INSERT INTO USERS (login, user_name, salt, password, is_admin) VALUE ('admin@ky3he4ik.dev', 'Administrator', 'q2435t5tgfw', SHA1(ENCRYPT('admin_password', 'q2435t5tgfw')), true);
 
 
 CREATE TABLE IF NOT EXISTS DISKS
@@ -47,6 +47,3 @@ CREATE TABLE IF NOT EXISTS ORDER_DETAILS
     FOREIGN KEY order_details_order (order_id) REFERENCES ORDERS (order_id),
     FOREIGN KEY order_details_disk (disk_id) REFERENCES DISKS (id)
 ) DEFAULT CHARSET = utf8;
-
-
-SELECT id, is_admin FROM USERS WHERE login='1@q.er' and password='921d8b5b109a6235b103ff9af23a10910870eda9';
