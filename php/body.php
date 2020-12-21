@@ -3,7 +3,6 @@ require_once "db_connect.php";
 $LOGIN_COOKIE = "login";
 $LOGIN_SECRET_COOKIE = "login_secret";
 if (isset($_COOKIE[$LOGIN_COOKIE]) && isset($_COOKIE[$LOGIN_SECRET_COOKIE])) {
-    $LOGIN = "User";
     $login_esc = mysqli_real_escape_string($base, $_COOKIE[$LOGIN_COOKIE]);
     $login_secret_esc = mysqli_real_escape_string($base, $_COOKIE[$LOGIN_SECRET_COOKIE]);
     $result = mysqli_query($base, "SELECT $table_users_id FROM $table_users_table WHERE $table_users_login='$login_esc' and $table_users_password='$login_secret_esc'") or die(mysqli_error($base));

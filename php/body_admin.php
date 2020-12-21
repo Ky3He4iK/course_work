@@ -5,8 +5,7 @@ $LOGIN_SECRET_COOKIE = "login_secret";
 if (isset($_COOKIE[$LOGIN_COOKIE]) && isset($_COOKIE[$LOGIN_SECRET_COOKIE])) {
     $login_esc = mysqli_real_escape_string($base, $_COOKIE[$LOGIN_COOKIE]);
     $login_secret_esc = mysqli_real_escape_string($base, $_COOKIE[$LOGIN_SECRET_COOKIE]);
-    $query = "SELECT $table_users_id, $table_users_is_admin FROM $table_users_table WHERE $table_users_login='$login_esc' and $table_users_password='$login_secret_esc'";
-    $result = mysqli_query($base, $query) or die(mysqli_error($base));
+    $result = mysqli_query($base, "SELECT $table_users_id, $table_users_is_admin FROM $table_users_table WHERE $table_users_login='$login_esc' and $table_users_password='$login_secret_esc'") or die(mysqli_error($base));
     $array = mysqli_fetch_array($result);
     if ($array != false && $array[1] == 1) {
         $LOGIN = $login_esc;
