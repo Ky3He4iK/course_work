@@ -43,21 +43,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $query = "UPDATE $table_disks_table SET $table_disks_manufacturer='$MANUFACTURER', $table_disks_model='$MODEL', 
                 $table_disks_description='$DESCRIPTION', $table_disks_capacity=$CAPACITY, $table_disks_price=$PRICE, $table_disks_transfer_rate=$TRANSFER_RATE,
                 $table_disks_interface='$INTERFACE' WHERE $table_disks_id=$DISK_ID";
-                $result = mysqli_query($base, $query);
-                if ($result)
-                    $INFO = 'Диск обновлен успешно';
-                else
-                    $ERROR = mysqli_error($base);
             } else {
                 $query = "INSERT INTO $table_disks_table ($table_disks_manufacturer, $table_disks_model, $table_disks_description, 
                    $table_disks_capacity, $table_disks_price, $table_disks_transfer_rate, $table_disks_interface) 
                    VALUE ('$MANUFACTURER', '$MODEL', '$DESCRIPTION', $CAPACITY, $PRICE, $TRANSFER_RATE, '$INTERFACE')";
-                $result = mysqli_query($base, $query);
-                if ($result)
-                    $INFO = 'Диск добавлен успешно';
-                else
-                    $ERROR = mysqli_error($base);
             }
+            $result = mysqli_query($base, $query);
+            if ($result)
+                $INFO = 'Диск добавлен успешно';
+            else
+                $ERROR = mysqli_error($base);
         }
     }
 } else if ($_SERVER["REQUEST_METHOD"] == "DELETE") {

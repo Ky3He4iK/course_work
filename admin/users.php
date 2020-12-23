@@ -163,11 +163,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form method="POST">
                 <div class="form-group">
                     <label class="small mb-1" for="user_id">Id пользователя</label>
-                    <input class="form-control py-4" id="user_id" name="user_id" type="number" min="-1"/>
+                    <input class="form-control py-4" id="user_id" name="user_id" type="number" min="1" required/>
                 </div>
                 <div class="form-group">
                     <label class="small mb-1" for="password">Пароль</label>
-                    <input class="form-control py-4" id="password" name="password" type="password"/>
+                    <input class="form-control py-4" id="password" name="password" type="password" required/>
                 </div>
                 <div class="form-group mt-4 mb-0">
                     <input type="submit" class="btn btn-primary btn-block" value="Обновить">

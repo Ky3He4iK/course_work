@@ -13,8 +13,8 @@ if (isset($_COOKIE[$LOGIN_COOKIE]) && isset($_COOKIE[$LOGIN_SECRET_COOKIE])) {
     }
 }
 if (!isset($LOGIN)) {
-    header("Location: login.php");
-    exit();
+//    header("Location: login.php");
+//    exit();
 }
 ?>
 <body class="sb-nav-fixed sb-sidenav-toggled">
