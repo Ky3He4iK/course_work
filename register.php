@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $MAIL_ERR = "Почта слишком длинная";
         $IS_OK = false;
     } else {
-        $r = preg_match("/^*+@*+$/", $_POST[$MAIL]);
+        $r = preg_match("/^.+@.+$/", $_POST[$MAIL]);
         if ($r == 0) {
             $MAIL_ERR = "Неправильный формат почты";
             $IS_OK = false;
