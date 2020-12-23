@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
         <div class="card mb-4">
             <?php
-            include("php/disks_table.php")
+            include("../php/disks_table.php")
             ?>
         </div>
         <div class="card-body">

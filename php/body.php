@@ -7,14 +7,14 @@ if (isset($_COOKIE[$LOGIN_COOKIE]) && isset($_COOKIE[$LOGIN_SECRET_COOKIE])) {
     $login_secret_esc = mysqli_real_escape_string($base, $_COOKIE[$LOGIN_SECRET_COOKIE]);
     $result = mysqli_query($base, "SELECT $table_users_id FROM $table_users_table WHERE $table_users_login='$login_esc' and $table_users_password='$login_secret_esc'") or die(mysqli_error($base));
     $array = mysqli_fetch_array($result);
-    if ($array !== false) {
+    if ($array != false) {
         $LOGIN = $login_esc;
         $USER_ID = $array[0];
     }
 }
 if (!isset($LOGIN)) {
-//    header("Location: login.php");
-//    exit();
+    header("Location: login.php");
+    exit();
 }
 ?>
 <body class="sb-nav-fixed sb-sidenav-toggled">

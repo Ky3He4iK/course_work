@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $salt = $array[0];
             $res_pass = mysqli_query($base, "SELECT $table_users_password FROM $table_users_table WHERE $table_users_login='$mail' AND $table_users_password=SHA1(ENCRYPT('$pass', '$salt'))") or die(mysqli_error($base));
             $array = mysqli_fetch_array($res_pass);
-            if ($array !== false) {
+            if ($array != false) {
                 $secret = $array[0];
                 setcookie($LOGIN_COOKIE, $mail, time() + 86400, '/');
                 setcookie($LOGIN_SECRET_COOKIE, $secret, time() + 86400, '/');
