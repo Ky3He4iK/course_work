@@ -19,6 +19,13 @@ if (isset($_COOKIE[$LOGIN_SECRET_COOKIE])) {
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="container-fluid">
+                                <div class="row  justify-content-center">
+                                    Информационно-справочная система "Жёсткие диски"
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header"><h3 class="text-center font-weight-light my-4"><?php
                                     if (!isset($TITLE))
                                         die("Variable \$TITLE should be provided!");
